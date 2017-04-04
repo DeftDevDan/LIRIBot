@@ -41,7 +41,7 @@ function tweet() {
 		}
 
 		for(var tweet in tweets) {
-			console.log(tweets[tweet].text + " @: " + tweets[tweet].created_at);
+			log(tweets[tweet].text + " @: " + tweets[tweet].created_at);
 		}
 	});
 }
@@ -57,10 +57,10 @@ function spotify() {
 			if(err) {
 				console.log(err);
 			}
-			console.log(data.tracks.items[0].artists[0].name);
-			console.log(data.tracks.items[0].name);
-			console.log(data.tracks.items[0].preview_url);
-			console.log(data.tracks.items[0].album.name);
+			log(data.tracks.items[0].artists[0].name);
+			log(data.tracks.items[0].name);
+			log(data.tracks.items[0].preview_url);
+			log(data.tracks.items[0].album.name);
 		});
 	} else {
 		song = "The Sign";
@@ -68,10 +68,10 @@ function spotify() {
 			if(err) {
 				console.log(err);
 			}
-			console.log(data.tracks.items[2].artists[0].name);
-			console.log(data.tracks.items[2].name);
-			console.log(data.tracks.items[2].preview_url);
-			console.log(data.tracks.items[2].album.name);
+			log(data.tracks.items[2].artists[0].name);
+			log(data.tracks.items[2].name);
+			log(data.tracks.items[2].preview_url);
+			log(data.tracks.items[2].album.name);
 		});
 	}
 }
@@ -96,27 +96,28 @@ function movie() {
 		} else {
 			var movie = JSON.parse(data);
 			var tomato = -1;
-			console.log(movie.Title);
-			console.log(movie.Year);
-			console.log(movie.imdbRating);
-			console.log(movie.Country);
-			console.log(movie.Language);
-			console.log(movie.Plot);
-			console.log(movie.Actors);
+			log(movie.Title);
+			log(movie.Year);
+			log(movie.imdbRating);
+			log(movie.Country);
+			log(movie.Language);
+			log(movie.Plot);
+			log(movie.Actors);
 			for(var rt in movie.Ratings) {
 				if (movie.Ratings[rt].Source === 'Rotten Tomatoes') {
 					tomato = rt;
 				}
 			}
 			if(tomato === -1) {
-				console.log("No Rotten Tomatoes Rating");
+				log("No Rotten Tomatoes Rating");
 			} else {
-				console.log(movie.Ratings[tomato].Value);
+				log(movie.Ratings[tomato].Value);
 			}	
 			if(movie.tomato) {
-				console.log(movie.tomato.url);
+				log(movie.tomato.url);
+				//console.log(movie.tomato.url);
 			} else {
-				console.log("https://www.rottentomatoes.com/m/" + movie.Title.replace(/ |\. |, |: /g, "_"));
+				log("https://www.rottentomatoes.com/m/" + movie.Title.replace(/ |\. |, |: /g, "_"));
 			}
 		}
 	});
@@ -137,5 +138,15 @@ function doSomething() {
 		}
 		
 		start(args[2])
+	});
+}
+
+function log(output) {
+	console.log(output);
+	var fs = require('fs');
+	fs.appendFile('log.txt', output + "\r\n", function(err) {
+		if(err) {
+			console.log(err);
+		}
 	});
 }
