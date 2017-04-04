@@ -112,8 +112,12 @@ function movie() {
 				console.log("No Rotten Tomatoes Rating");
 			} else {
 				console.log(movie.Ratings[tomato].Value);
+			}	
+			if(movie.tomato) {
+				console.log(movie.tomato.url);
+			} else {
+				console.log("https://www.rottentomatoes.com/m/" + movie.Title.replace(/ |\. |, |: /g, "_"));
 			}
-			console.log("https://www.rottentomatoes.com/m/" + movie.Title.replace(/ |\. |, |: /g, "_"));
 		}
 	});
 }

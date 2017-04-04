@@ -1,0 +1,26 @@
+{
+  "name": "liribot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "keys.js",
+  "dependencies": {
+    "omdb": "^0.7.0",
+    "request": "^2.81.0",
+    "spotify": "^0.3.0",
+    "twitter": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kptkid/LIRIBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kptkid/LIRIBot/issues"
+  },
+  "homepage": "https://github.com/kptkid/LIRIBot#readme"
+}
