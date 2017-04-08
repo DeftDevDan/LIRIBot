@@ -88,7 +88,7 @@ function movie() {
 	}
 
 
-	var url="http://www.omdbapi.com/?t=" + search + "&y=&plot=short&r=json";
+	var url="http://www.omdbapi.com/?t=" + search.trim() + "&y=&plot=full&tomatoes=true&r=json";
 
 	request(url, function(err, response, data) {
 		if(err) {
